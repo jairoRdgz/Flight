@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.FligthsController">
+   <children>
+      <Button layoutX="403.0" layoutY="33.0" mnemonicParsing="false" onAction="#generate" text="Generate Flights list" />
+      <Label layoutX="42.0" layoutY="37.0" text="number of fligths: " />
+      <TextField fx:id="numberOfFlights" layoutX="151.0" layoutY="33.0" />
+      <TableView fx:id="table" editable="true" layoutY="80.0" prefHeight="320.0" prefWidth="600.0">
+        <columns>
+          <TableColumn prefWidth="100.0" text="Date" />
+          <TableColumn prefWidth="100.0" text="Schedule" />
+            <TableColumn prefWidth="100.0" text="Airline" />
+            <TableColumn prefWidth="100.0" text="# Flight" />
+            <TableColumn prefWidth="100.0" text="Destiny" />
+            <TableColumn prefWidth="100.0" text="Gate" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
