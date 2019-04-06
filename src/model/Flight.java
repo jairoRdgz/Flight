@@ -1,16 +1,21 @@
 package model;
 
-public class Flight {
+import java.util.Date;
+
+public class Flight implements Comparable<Flight>{
 	private Date date;
-	private Time schedule;
 	private String airline;
 	private String numFlight;
 	private String destiny;
 	private String gate;
 
-	public Flight() {
-		// TODO - implement Flight.Flight
-		throw new UnsupportedOperationException();
+	public Flight(Date d, String a, String n, String des, String g) {
+		this.date = d;
+		this.airline = a;
+		this.numFlight = n;
+		this.destiny = des;
+		this.gate = g;
+		
 	}
 
 	public Date getDate() {
@@ -23,18 +28,6 @@ public class Flight {
 	 */
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public Time getSchedule() {
-		return this.schedule;
-	}
-
-	/**
-	 * 
-	 * @param schedule
-	 */
-	public void setSchedule(Time schedule) {
-		this.schedule = schedule;
 	}
 
 	public String getAirline() {
@@ -84,4 +77,19 @@ public class Flight {
 	public void setGate(String gate) {
 		this.gate = gate;
 	}
+
+	@Override
+	public int compareTo(Flight flights) {
+		int comparation ;
+		
+		if(airline.compareTo(airline)>0) {
+			comparation = 1;
+		}else if(airline.compareTo(airline)<0) {
+			comparation = -1;
+		}else {
+			comparation = 0;
+		}
+		return comparation;
+	}
+	
 }
