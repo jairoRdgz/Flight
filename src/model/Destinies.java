@@ -7,7 +7,7 @@ public enum Destinies {
 	ARUBA("Aruba"),
 	CARTAGENA("Cartagena"), 
 	LETICIA("Leticia"),
-	TUMACO("Tumacocao"),
+	TUMACO("Tumaco"),
 	PRADERA("Pradera"),
 	PARIS("Paris");
 	

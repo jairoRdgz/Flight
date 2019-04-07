@@ -17,7 +17,7 @@ public class Main extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("Flights.fxml"));
 		
 		Scene scene = new Scene(root);
-		stage.setTitle("Ball Bouncing");
+		stage.setTitle("Vojabes International Airport");
 		stage.setScene(scene);
 		stage.show();
 	}

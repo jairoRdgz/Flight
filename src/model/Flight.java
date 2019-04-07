@@ -1,16 +1,16 @@
 package model;
 
-import java.util.Date;
-
 public class Flight implements Comparable<Flight>{
 	private Date date;
+	private Time time;
 	private String airline;
 	private String numFlight;
 	private String destiny;
 	private String gate;
 
-	public Flight(Date d, String a, String n, String des, String g) {
+	public Flight(Date d, Time t, String a, String n, String des, String g) {
 		this.date = d;
+		this.time = t;
 		this.airline = a;
 		this.numFlight = n;
 		this.destiny = des;
@@ -28,6 +28,14 @@ public class Flight implements Comparable<Flight>{
 	 */
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Time getTime() {
+		return time;
+	}
+
+	public void setTime(Time time) {
+		this.time = time;
 	}
 
 	public String getAirline() {
@@ -80,16 +88,15 @@ public class Flight implements Comparable<Flight>{
 
 	@Override
 	public int compareTo(Flight flights) {
-		int comparation ;
-		
-		if(airline.compareTo(airline)>0) {
-			comparation = 1;
-		}else if(airline.compareTo(airline)<0) {
-			comparation = -1;
+		int compare;
+		if(airline.compareTo(airline)<0) {
+			compare = -1;
+		}else if(airline.compareTo(airline)>0) {
+			compare = 1;
 		}else {
-			comparation = 0;
+			compare = 0;
 		}
-		return comparation;
+		return compare;
 	}
 	
 }
