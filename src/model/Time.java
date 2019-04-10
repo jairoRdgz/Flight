@@ -1,6 +1,6 @@
 package model;
 
-public class Time {
+public class Time implements Comparable<Time>{
 	public final static int AM = 1;
 	public final static int PM = 2;
 	
@@ -66,5 +66,30 @@ public class Time {
 		}
 		
 		return time;
+	}
+	
+	public int compareTo(Time t) {
+		int comparation ;
+		if(am_pm<t.am_pm) {
+			comparation =1;
+		}else if(am_pm>t.am_pm) {
+			comparation = -1;
+		}else {
+			if(hour<t.hour) {
+				comparation =1;
+			}else if(hour > t.hour) {
+				comparation = -1;
+			}else {
+				if(minutes<t.minutes) {
+					comparation = 1;
+				}else if(minutes>t.minutes) {
+					comparation = -1;
+				}else {
+					comparation = 0;
+				}
+			}
+		}
+		
+		return comparation;
 	}
 }

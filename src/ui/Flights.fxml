@@ -58,9 +58,12 @@
    <bottom>
       <Pane prefHeight="30.0" prefWidth="612.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="410.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" text="Search Flight" />
+            <Button layoutX="374.0" layoutY="2.0" mnemonicParsing="false" onAction="#search" text="Search Flight" />
             <ComboBox fx:id="parameter" layoutX="14.0" layoutY="2.0" prefHeight="25.0" prefWidth="152.0" promptText="-Search Parameter-" />
             <TextField fx:id="searcher" layoutX="179.0" layoutY="2.0" prefHeight="25.0" prefWidth="179.0" />
+            <Button layoutX="493.0" layoutY="4.0" mnemonicParsing="false" onAction="#prev" text="&lt;" />
+            <Button layoutX="557.0" layoutY="4.0" mnemonicParsing="false" onAction="#next" text="&gt;" />
+            <Label fx:id="pag" layoutX="532.0" layoutY="4.0" prefHeight="25.0" prefWidth="21.0" text="1" />
          </children>
       </Pane>
    </bottom>

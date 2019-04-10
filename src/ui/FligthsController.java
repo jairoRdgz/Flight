@@ -48,6 +48,9 @@ public class FligthsController {
 
     @FXML
     private VBox destinies;
+    
+    @FXML
+    private Label pag;
 
     @FXML
     private VBox gates;
@@ -75,6 +78,27 @@ public class FligthsController {
     	
     	showTable();
     	
+    }
+    
+    @FXML
+    public void next(ActionEvent event) {
+    	int este = Integer.parseInt(pag.getText())+1;
+    	if(este<fligths.getFlight().size()/16 +2) {
+    		pag.setText(este+"");
+        	clearTable();
+        	showTable();
+    	}
+    	
+    }
+    
+    @FXML
+    public void prev(ActionEvent event) {
+    	int este = Integer.parseInt(pag.getText())-1;
+    	if(este>0) {
+    		pag.setText(este+"");
+        	clearTable();
+        	showTable();
+    	}
     }
 
     @FXML
@@ -115,25 +139,33 @@ public class FligthsController {
     
     public void showTable() {
     	ArrayList<Flight> fls = fligths.getFlight();
-    	for (int i = 0; i < fls.size(); i++) {
-    		Label d = new Label("\t"+fls.get(i).getDate().toString());
-    		Label s = new Label("\t"+fls.get(i).getTime().toString());
-			Label a = new Label("\t"+fls.get(i).getAirline());
-			Label f = new Label("\t"+fls.get(i).getNumFlight());
-			Label de = new Label("\t"+fls.get(i).getDestiny());
-			Label g = new Label("\t"+fls.get(i).getGate());			
-			dates.getChildren().add(s);
-			schedule.getChildren().add(d);
-			airlines.getChildren().add(a);
-			flies.getChildren().add(f);
-			destinies.getChildren().add(de);
-			gates.getChildren().add(g);
-		}
+    	int pages = fls.size()/16;
+    	
+    	for(int j=0; j<=pages; j++) {
+    		if(j+1 == Integer.parseInt(pag.getText())) {	
+    			for (int i = 16*j; i < 16+(16*j) && i<fls.size(); i++) {
+    					Label d = new Label("\t"+fls.get(i).getDate().toString());
+    					Label s = new Label("\t"+fls.get(i).getTime().toString());
+    					Label a = new Label("\t"+fls.get(i).getAirline());
+    					Label f = new Label("\t"+fls.get(i).getNumFlight());
+    					Label de = new Label("\t"+fls.get(i).getDestiny());
+    					Label g = new Label("\t"+fls.get(i).getGate());			
+    					dates.getChildren().add(s);
+    					schedule.getChildren().add(d);
+    					airlines.getChildren().add(a);
+    					flies.getChildren().add(f);
+    					destinies.getChildren().add(de);
+    					gates.getChildren().add(g);
+    			}
+    		}
+    	}
     }
     
     @FXML
     public void sortBySchedule(ActionEvent event) throws InvocationTargetException{
-    	//ArrayList<Flight> fls = fligths.getFlight();
+    	clearTable();
+    	
+    	showTable();
     }
     
     @FXML
@@ -146,7 +178,7 @@ public class FligthsController {
     @FXML
     void sortByDate(ActionEvent event)  throws InvocationTargetException{
     	clearTable();
-    	fligths.insertionSortGate(fligths.getFlight());
+    	fligths.insertionSortTime(fligths.getFlight());
     	showTable();
     }
     
