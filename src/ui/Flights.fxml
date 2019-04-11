@@ -22,6 +22,8 @@
                   <Font name="System Bold" size="12.0" />
                </font></Label>
             <Button layoutX="231.0" layoutY="21.0" mnemonicParsing="false" onAction="#generate" text="Generate Flights list" />
+            <Label layoutX="404.0" layoutY="28.0" text="Operation TIme:" />
+            <Label fx:id="time" layoutX="497.0" layoutY="25.0" prefHeight="23.0" prefWidth="99.0" />
          </children>
       </Pane>
    </top>

@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -166,11 +165,6 @@ public class FlightList {
 			fls.set(i, temp);
 		}
 	}
-	
-	public void insertionSortTime(ArrayList<Flight> fls) {
-		Collections.sort(fls);
-	}
-	
 
 	public Flight binarySort(String parameter, String value){
 		int high = flights.size()-1;

@@ -56,6 +56,9 @@ public class FligthsController {
     private VBox gates;
     
     @FXML
+    private Label time;
+    
+    @FXML
     private ComboBox<String> parameter;
     
     private FlightList fligths;
@@ -103,6 +106,7 @@ public class FligthsController {
 
     @FXML
     public void generate(ActionEvent event) {
+    	long  ti = System.currentTimeMillis();
     	clearTable();
     	grid.setVisible(true);
     	fligths = new FlightList(new ArrayList<Flight>());
@@ -113,7 +117,7 @@ public class FligthsController {
     		num = Integer.parseInt(numberOfFlights.getText());
     	}catch(NumberFormatException e) {
     		Alert info = new Alert(AlertType.ERROR);
-        	info.setTitle("PacMan");
+        	info.setTitle("Vojabes International Airport");
         	info.setHeaderText(null);
         	info.initStyle(StageStyle.UTILITY);
         	info.setContentText("Please introduce a number");
@@ -124,8 +128,9 @@ public class FligthsController {
     		Flight fl = new Flight(fligths.getRandomDate(),fligths.getRandomTime(), fligths.getRandomAirline(), fligths.getRandomCode(), fligths.getRandomDestiny(), fligths.randomChar());
     		fls.add(fl);
 		}
-    	//fligths.insertionSort(fls);
+    	fligths.insertionSortAirline(fls);
     	showTable();
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
     
     public void clearTable() {
@@ -170,36 +175,46 @@ public class FligthsController {
     
     @FXML
     void sortByAirline(ActionEvent event)  throws InvocationTargetException{
+    	long ti = System.currentTimeMillis();
     	clearTable();
     	fligths.insertionSortAirline(fligths.getFlight());
     	showTable();	
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
 
     @FXML
     void sortByDate(ActionEvent event)  throws InvocationTargetException{
+    	long ti = System.currentTimeMillis();
     	clearTable();
-    	fligths.insertionSortTime(fligths.getFlight());
+    	
+    	
     	showTable();
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
     
     @FXML
     void sortByDestiny(ActionEvent event)  throws InvocationTargetException{
+    	long ti = System.currentTimeMillis();
     	clearTable();
     	fligths.insertionSortDestiny(fligths.getFlight());
     	showTable();
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
     
 
     @FXML
     void sortByFlight(ActionEvent event)  throws InvocationTargetException{
+    	long ti = System.currentTimeMillis();
     	clearTable();
     	ArrayList<Flight> fls = fligths.getFlight();
     	fligths.insertionSortFlight(fls);
     	showTable();
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
 
     @FXML
     void sortByGate(ActionEvent event)  throws InvocationTargetException{
+    	long ti =System.currentTimeMillis();
     	clearTable();
     	ArrayList<Flight> fls = fligths.getFlight();
     	for (int i = 0; i < fls.size()-1; i++) {
@@ -217,6 +232,7 @@ public class FligthsController {
 			fls.set(i, temp);
 		}
     	showTable();
+    	time.setText((System.currentTimeMillis()-ti) +" Mili Seconds");
     }
     
     @FXML
